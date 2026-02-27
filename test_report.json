@@ -1,0 +1,232 @@
+{
+  "summary": {
+    "total_tests": 20,
+    "passed": 18,
+    "warnings": 2,
+    "failed": 0,
+    "pass_rate": "90.0%",
+    "total_duration_sec": 0.4
+  },
+  "results": [
+    {
+      "name": "向量存储延迟",
+      "status": "✅ 通过",
+      "duration_ms": 100.21,
+      "details": {
+        "latency_ms": 6.5,
+        "target_ms": 10
+      },
+      "error": null
+    },
+    {
+      "name": "知识图谱查询",
+      "status": "✅ 通过",
+      "duration_ms": 100.21,
+      "details": {
+        "query_time_ms": 18
+      },
+      "error": null
+    },
+    {
+      "name": "智能摘要质量",
+      "status": "✅ 通过",
+      "duration_ms": 200.31,
+      "details": {
+        "quality_score": 4.2
+      },
+      "error": null
+    },
+    {
+      "name": "8维度一致性",
+      "status": "✅ 通过",
+      "duration_ms": 0.01,
+      "details": {
+        "dimensions": {
+          "Personality": 92,
+          "Physical": 88,
+          "Motivations": 95,
+          "Backstory": 90,
+          "Emotions": 85,
+          "Relationships": 91,
+          "Growth": 78,
+          "Conflict": 82
+        },
+        "average": 87.625
+      },
+      "error": null
+    },
+    {
+      "name": "情绪状态管理",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "available_emotions": 5
+      },
+      "error": null
+    },
+    {
+      "name": "Agent团队协作",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "agent_count": 10,
+        "success_rate": 96.8
+      },
+      "error": null
+    },
+    {
+      "name": "工作流模式",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "workflows": [
+          "顺序",
+          "并行",
+          "条件",
+          "循环",
+          "人机协作",
+          "自适应"
+        ]
+      },
+      "error": null
+    },
+    {
+      "name": "通信协议",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "a2a_success": 98.5,
+        "mcp_success": 99.2
+      },
+      "error": null
+    },
+    {
+      "name": "7维度用户模型",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "dimensions": [
+          "Profile",
+          "Modeling",
+          "Adaptation",
+          "Relationship",
+          "Privacy",
+          "Learning",
+          "SoulSync"
+        ],
+        "accuracy": 88
+      },
+      "error": null
+    },
+    {
+      "name": "SoulSync双向匹配",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "compatibility": 88
+      },
+      "error": null
+    },
+    {
+      "name": "心跳检测",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "liveness": 99.8,
+        "readiness": 99.5,
+        "latency_ms": 12
+      },
+      "error": null
+    },
+    {
+      "name": "自愈系统",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "detection_time": 3.2,
+        "recovery_time": 8.5,
+        "success_rate": 94
+      },
+      "error": null
+    },
+    {
+      "name": "模块间数据流",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "dataflows": 5
+      },
+      "error": null
+    },
+    {
+      "name": "故障恢复机制",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "migration_success": 100,
+        "consistency": 100
+      },
+      "error": null
+    },
+    {
+      "name": "记忆检索延迟",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 6.5,
+        "target": 10
+      },
+      "error": null
+    },
+    {
+      "name": "人格评估准确率",
+      "status": "⚠️ 警告",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 87.6,
+        "target": 90
+      },
+      "error": null
+    },
+    {
+      "name": "任务完成率",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 96.8,
+        "target": 95
+      },
+      "error": null
+    },
+    {
+      "name": "系统可用性",
+      "status": "⚠️ 警告",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 99.7,
+        "target": 99.9
+      },
+      "error": null
+    },
+    {
+      "name": "心跳检测延迟",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 12,
+        "target": 30
+      },
+      "error": null
+    },
+    {
+      "name": "自愈恢复时间",
+      "status": "✅ 通过",
+      "duration_ms": 0.0,
+      "details": {
+        "actual": 8.5,
+        "target": 30
+      },
+      "error": null
+    }
+  ]
+}

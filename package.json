@@ -1,0 +1,17 @@
+{
+  "name": "production-app",
+  "version": "1.0.0",
+  "description": "Production ready application",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "health": "node healthcheck.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "keywords": ["production", "api"],
+  "author": "",
+  "license": "MIT"
+}

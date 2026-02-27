@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-02-27T14:42:27.995284",
+  "competitors": {
+    "openai": {
+      "name": "OpenAI",
+      "last_check": "2026-02-27T14:42:27.995306",
+      "news": [],
+      "updates": []
+    },
+    "anthropic": {
+      "name": "Anthropic",
+      "last_check": "2026-02-27T14:42:29.082027",
+      "news": [],
+      "updates": []
+    },
+    "google_deepmind": {
+      "name": "Google DeepMind",
+      "last_check": "2026-02-27T14:42:29.447878",
+      "news": [],
+      "updates": []
+    },
+    "microsoft_copilot": {
+      "name": "Microsoft Copilot",
+      "last_check": "2026-02-27T14:42:29.788512",
+      "news": [],
+      "updates": []
+    },
+    "meta_ai": {
+      "name": "Meta AI",
+      "last_check": "2026-02-27T14:42:30.134689",
+      "news": [],
+      "updates": []
+    },
+    "autogpt": {
+      "name": "AutoGPT",
+      "last_check": "2026-02-27T14:42:30.493164",
+      "news": [],
+      "updates": []
+    },
+    "langchain": {
+      "name": "LangChain",
+      "last_check": "2026-02-27T14:42:30.832693",
+      "news": [],
+      "updates": []
+    },
+    "crewai": {
+      "name": "CrewAI",
+      "last_check": "2026-02-27T14:42:31.219172",
+      "news": [],
+      "updates": []
+    }
+  },
+  "alerts": [],
+  "summary": {
+    "total_competitors": 8,
+    "total_news": 0,
+    "total_alerts": 0,
+    "high_priority_alerts": 0,
+    "monitor_time": "2026-02-27T14:42:27.995284"
+  }
+}

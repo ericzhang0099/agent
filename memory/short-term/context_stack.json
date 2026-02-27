@@ -1,0 +1,23 @@
+{
+  "session_id": "session_2026-02-27_001",
+  "started_at": "2026-02-27T13:44:00+08:00",
+  "context_stack": [
+    {
+      "level": 0,
+      "type": "system",
+      "description": "CEO Kimi Claw 自我升级"
+    },
+    {
+      "level": 1,
+      "type": "task",
+      "description": "构建分层长期记忆系统",
+      "priority": "high"
+    }
+  ],
+  "active_variables": {
+    "current_phase": "initialization",
+    "progress_percent": 15
+  },
+  "temp_data": {},
+  "last_updated": "2026-02-27T13:44:00+08:00"
+}

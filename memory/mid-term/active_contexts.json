@@ -1,0 +1,26 @@
+# 活跃上下文索引
+
+## 当前活跃项目
+
+| 项目ID | 项目名称 | 状态 | 最后更新 |
+|-------|---------|------|---------|
+| memory-system-upgrade | 分层长期记忆系统构建 | active | 2026-02-27 |
+
+## 活跃工作流
+
+- **memory-workflow**: 记忆提取和存储流程
+- **session-management**: 会话生命周期管理
+
+## 活跃上下文标记
+
+```json
+{
+  "active_projects": ["memory-system-upgrade"],
+  "active_workflows": ["memory-workflow", "session-management"],
+  "current_focus": "memory-system-upgrade",
+  "last_context_switch": "2026-02-27T13:44:00+08:00"
+}
+```
+
+---
+*自动更新: 会话切换时*

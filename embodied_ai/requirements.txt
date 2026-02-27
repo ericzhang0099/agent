@@ -1,0 +1,42 @@
+# 具身智能项目依赖
+
+# 核心依赖
+numpy>=1.21.0
+torch>=2.0.0
+torchvision>=0.15.0
+pillow>=9.0.0
+
+# ROS2接口（可选）
+# rclpy>=3.3.0  # 需要在ROS2环境中安装
+# sensor-msgs>=4.2.0
+# geometry-msgs>=4.2.0
+# trajectory-msgs>=4.2.0
+# control-msgs>=4.0.0
+
+# 模拟器接口（可选）
+# 根据使用的模拟器选择性安装
+# pybullet>=3.2.0
+# mujoco>=2.3.0
+# gymnasium>=0.28.0
+
+# 视觉处理
+opencv-python>=4.7.0
+transformers>=4.30.0  # 用于VLA模型
+
+# 数据处理
+pyyaml>=6.0
+scipy>=1.10.0
+
+# 日志和监控
+tensorboard>=2.13.0
+wandb>=0.15.0
+
+# 开发工具
+pytest>=7.3.0
+black>=23.3.0
+flake8>=6.0.0
+mypy>=1.3.0
+
+# 文档
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.2.0

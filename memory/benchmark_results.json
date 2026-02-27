@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-02-27T18:30:39.700545",
+  "results": [
+    {
+      "test_name": "\u6587\u4ef6\u68c0\u7d22 (File-based)",
+      "total_queries": 100,
+      "total_time_ms": 119.4536869879812,
+      "avg_latency_ms": 1.194536869879812,
+      "min_latency_ms": 1.0333129976061173,
+      "max_latency_ms": 1.761292998708086,
+      "p50_latency_ms": 1.0877940003410913,
+      "p95_latency_ms": 1.4549280022038147,
+      "p99_latency_ms": 1.761292998708086,
+      "throughput_qps": 837.1445245558764,
+      "accuracy": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    {
+      "test_name": "Chroma\u5411\u91cf\u68c0\u7d22",
+      "total_queries": 50,
+      "total_time_ms": 44.468963005783735,
+      "avg_latency_ms": 0.8893792601156747,
+      "min_latency_ms": 0.8302620008180384,
+      "max_latency_ms": 0.950580997596262,
+      "p50_latency_ms": 0.8950080009526573,
+      "p95_latency_ms": 0.934256000618916,
+      "p99_latency_ms": 0.950580997596262,
+      "throughput_qps": 1124.3797161066448,
+      "accuracy": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    {
+      "test_name": "Pinecone\u5411\u91cf\u68c0\u7d22 (\u76ee\u6807)",
+      "total_queries": 100,
+      "total_time_ms": 154.6288200042909,
+      "avg_latency_ms": 1.546288200042909,
+      "min_latency_ms": 1.056047000020044,
+      "max_latency_ms": 2.0280389981053304,
+      "p50_latency_ms": 1.521267000498483,
+      "p95_latency_ms": 2.000248001422733,
+      "p99_latency_ms": 2.0280389981053304,
+      "throughput_qps": 646.7099729353495,
+      "accuracy": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    {
+      "test_name": "\u6df7\u5408\u68c0\u7d22 (\u5411\u91cf+\u5173\u952e\u8bcd)",
+      "total_queries": 100,
+      "total_time_ms": 363.3797510083241,
+      "avg_latency_ms": 3.633797510083241,
+      "min_latency_ms": 2.087176002532942,
+      "max_latency_ms": 5.060028001025785,
+      "p50_latency_ms": 3.7974040023982525,
+      "p95_latency_ms": 4.862845002207905,
+      "p99_latency_ms": 5.060028001025785,
+      "throughput_qps": 275.1942003441718,
+      "accuracy": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    {
+      "test_name": "\u68c0\u7d22\u51c6\u786e\u7387\u6d4b\u8bd5",
+      "total_queries": 3,
+      "total_time_ms": 0.00248300057137385,
+      "avg_latency_ms": 0.0008276668571246167,
+      "min_latency_ms": 0.00025999906938523054,
+      "max_latency_ms": 0.0014219986042007804,
+      "p50_latency_ms": 0.0008010028977878392,
+      "p95_latency_ms": 0.0014219986042007804,
+      "p99_latency_ms": 0.0014219986042007804,
+      "throughput_qps": 1208215.5898740261,
+      "accuracy": 0.3333333333333333,
+      "memory_usage_mb": 0.0
+    }
+  ]
+}

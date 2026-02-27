@@ -1,0 +1,95 @@
+user_id: test_user
+created_at: '2026-02-27T18:12:29.363135'
+updated_at: '2026-02-27T18:12:29.363140'
+identity:
+  name: ''
+  aliases: []
+  pronouns: null
+  timezone: Asia/Shanghai
+career:
+  role: ''
+  industry: ''
+  experience_level: intermediate
+  work_style: structured
+communication:
+  formality: semi-formal
+  verbosity: concise
+  response_speed: normal
+  preferred_channels:
+  - text
+technical:
+  proficiency: medium
+  preferred_languages: []
+  tools_familiarity: []
+current_state:
+  availability: available
+  energy_level: 0.7
+  focus_mode: normal
+short_term_preferences:
+  preferred_topics: []
+  avoided_topics: []
+  current_projects: []
+personality:
+  openness: 0.5
+  conscientiousness: 0.5
+  extraversion: 0.5
+  agreeableness: 0.5
+  neuroticism: 0.5
+  confidence:
+    openness: 0.3
+    conscientiousness: 0.3
+    extraversion: 0.3
+    agreeableness: 0.3
+    neuroticism: 0.3
+cognitive_style:
+  visual_verbal: 0.5
+  sequential_global: 0.5
+  sensing_intuitive: 0.5
+  rational_intuitive: 0.5
+  risk_tolerance: 0.5
+  speed_accuracy: 0.5
+  active_reflective: 0.5
+  theoretical_pragmatic: 0.5
+current_emotion:
+  valence: 0.0
+  arousal: 0.5
+  dominance: 0.5
+  timestamp: '2026-02-27T18:12:29.363150'
+  source: inferred
+interests:
+  primary: []
+  secondary: []
+  emerging: []
+content_preferences:
+  type: []
+  depth: medium
+  novelty: balanced
+relationship_stage: stranger
+stage_progress: 0.0
+stage_history: []
+relationship_metrics:
+  intimacy:
+    level: 0.0
+    emotional: 0.0
+    intellectual: 0.0
+    experiential: 0.0
+  trust:
+    level: 0.0
+    competence: 0.0
+    benevolence: 0.0
+    integrity: 0.0
+  dependence:
+    level: 0.0
+    healthy_balance: true
+milestones: []
+privacy_settings:
+  collection_level: adaptive
+  can_view_profile: true
+  can_edit_profile: true
+  explain_recommendations: true
+learning_stats:
+  total_interactions: 0
+  avg_response_quality: 0.0
+  correction_count: 0
+soulsync_score: 0.0
+compatibility_breakdown: {}

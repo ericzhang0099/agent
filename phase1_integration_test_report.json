@@ -1,0 +1,205 @@
+{
+  "test_run_timestamp": 1772194636.4525864,
+  "overall_summary": {
+    "total_suites": 4,
+    "total_tests": 18,
+    "total_passed": 17,
+    "overall_pass_rate": 0.9444444444444444
+  },
+  "suites": [
+    {
+      "suite_name": "推理协调器v1.0测试",
+      "summary": {
+        "suite_name": "推理协调器v1.0测试",
+        "total_tests": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "pass_rate": 1.0,
+        "duration_seconds": 0.15886139869689941
+      },
+      "results": [
+        {
+          "test_name": "推理协调器初始化",
+          "status": "passed",
+          "duration_ms": 6.029367446899414,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "单查询推理",
+          "status": "passed",
+          "duration_ms": 25.53534507751465,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "批量推理",
+          "status": "passed",
+          "duration_ms": 25.72345733642578,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "多策略推理",
+          "status": "passed",
+          "duration_ms": 101.53532028198242,
+          "message": "测试通过",
+          "details": {}
+        }
+      ],
+      "start_time": 1772194636.1035433,
+      "end_time": 1772194636.2624047
+    },
+    {
+      "suite_name": "记忆系统v4.0测试",
+      "summary": {
+        "suite_name": "记忆系统v4.0测试",
+        "total_tests": 5,
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "pass_rate": 1.0,
+        "duration_seconds": 0.05394244194030762
+      },
+      "results": [
+        {
+          "test_name": "记忆系统初始化",
+          "status": "passed",
+          "duration_ms": 48.77901077270508,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "记忆存储",
+          "status": "passed",
+          "duration_ms": 4.817485809326172,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "记忆检索",
+          "status": "passed",
+          "duration_ms": 0.20575523376464844,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "RLHF反馈",
+          "status": "passed",
+          "duration_ms": 0.08440017700195312,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "个性化学习",
+          "status": "passed",
+          "duration_ms": 0.01430511474609375,
+          "message": "测试通过",
+          "details": {}
+        }
+      ],
+      "start_time": 1772194636.262423,
+      "end_time": 1772194636.3163655
+    },
+    {
+      "suite_name": "RLHF管道v1.0测试",
+      "summary": {
+        "suite_name": "RLHF管道v1.0测试",
+        "total_tests": 5,
+        "passed": 5,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "pass_rate": 1.0,
+        "duration_seconds": 0.02798748016357422
+      },
+      "results": [
+        {
+          "test_name": "RLHF管道初始化",
+          "status": "passed",
+          "duration_ms": 7.488489151000977,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "反馈收集",
+          "status": "passed",
+          "duration_ms": 0.012636184692382812,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "数据集构建",
+          "status": "passed",
+          "duration_ms": 0.07796287536621094,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "奖励模型训练",
+          "status": "passed",
+          "duration_ms": 20.290851593017578,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "策略优化",
+          "status": "passed",
+          "duration_ms": 0.08487701416015625,
+          "message": "测试通过",
+          "details": {}
+        }
+      ],
+      "start_time": 1772194636.316381,
+      "end_time": 1772194636.3443685
+    },
+    {
+      "suite_name": "系统集成测试",
+      "summary": {
+        "suite_name": "系统集成测试",
+        "total_tests": 4,
+        "passed": 3,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "pass_rate": 0.75,
+        "duration_seconds": 0.10818076133728027
+      },
+      "results": [
+        {
+          "test_name": "推理与记忆集成",
+          "status": "failed",
+          "duration_ms": 25.76279640197754,
+          "message": "测试断言失败",
+          "details": {}
+        },
+        {
+          "test_name": "记忆与RLHF集成",
+          "status": "passed",
+          "duration_ms": 0.12803077697753906,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "完整管道集成",
+          "status": "passed",
+          "duration_ms": 25.66695213317871,
+          "message": "测试通过",
+          "details": {}
+        },
+        {
+          "test_name": "端到端工作流",
+          "status": "passed",
+          "duration_ms": 56.591033935546875,
+          "message": "测试通过",
+          "details": {}
+        }
+      ],
+      "start_time": 1772194636.34438,
+      "end_time": 1772194636.4525607
+    }
+  ]
+}

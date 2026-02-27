@@ -1,0 +1,614 @@
+# Agent工作流配置文件
+
+## 1. 基础配置 (config.yaml)
+
+```yaml
+# Agent工作流系统配置
+
+system:
+  name: "AgentWorkflowSystem"
+  version: "1.0.0"
+  log_level: "INFO"
+  max_concurrent_workflows: 100
+  
+# 存储配置
+storage:
+  type: "redis"  # redis | postgresql | memory
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+    password: null
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "agent_workflow"
+    user: "admin"
+    password: "password"
+
+# 事件总线配置
+event_bus:
+  type: "redis_pubsub"
+  redis:
+    host: "localhost"
+    port: 6379
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics_port: 9090
+  tracing_enabled: true
+```
+
+## 2. Agent团队配置 (agents.yaml)
+
+```yaml
+# 10人Agent团队配置
+
+team:
+  name: "CoreTeam"
+  description: "核心工作流执行团队"
+  
+agents:
+  # A1: 路由Agent
+  - id: "A1"
+    name: "RouterAgent"
+    type: "router"
+    description: "任务路由与分发中心"
+    capabilities:
+      - task_classification
+      - intent_recognition
+      - load_balancing
+    config:
+      routing_strategy: "smart"
+      fallback_enabled: true
+    max_concurrent_tasks: 50
+    
+  # A2: 规划Agent
+  - id: "A2"
+    name: "PlannerAgent"
+    type: "planner"
+    description: "任务规划与分解"
+    capabilities:
+      - task_decomposition
+      - dependency_analysis
+      - resource_planning
+    config:
+      planning_depth: 3
+      enable_replanning: true
+    max_concurrent_tasks: 20
+    
+  # A3: 研究Agent
+  - id: "A3"
+    name: "ResearchAgent"
+    type: "researcher"
+    description: "信息收集与研究"
+    capabilities:
+      - web_search
+      - data_collection
+      - information_synthesis
+    config:
+      search_sources: ["web", "internal_db"]
+      max_results: 10
+    max_concurrent_tasks: 10
+    
+  # A4: 写作Agent
+  - id: "A4"
+    name: "WritingAgent"
+    type: "writer"
+    description: "内容创作与编写"
+    capabilities:
+      - content_generation
+      - style_adaptation
+      - format_conversion
+    config:
+      default_tone: "professional"
+      languages: ["zh", "en"]
+    max_concurrent_tasks: 15
+    
+  # A5: 审核Agent
+  - id: "A5"
+    name: "ReviewAgent"
+    type: "evaluator"
+    description: "质量审核与评估"
+    capabilities:
+      - quality_assessment
+      - fact_checking
+      - compliance_check
+    config:
+      strictness_level: "medium"
+      auto_approve_threshold: 0.85
+    max_concurrent_tasks: 20
+    
+  # A6: 代码Agent
+  - id: "A6"
+    name: "CodeAgent"
+    type: "developer"
+    description: "代码生成与优化"
+    capabilities:
+      - code_generation
+      - code_review
+      - refactoring
+    config:
+      supported_languages: ["python", "javascript", "typescript", "go"]
+      code_style: "pep8"
+    max_concurrent_tasks: 10
+    
+  # A7: 数据Agent
+  - id: "A7"
+    name: "DataAgent"
+    type: "analyst"
+    description: "数据分析与处理"
+    capabilities:
+      - data_cleaning
+      - statistical_analysis
+      - visualization
+    config:
+      max_dataset_size: "1GB"
+      supported_formats: ["csv", "json", "parquet"]
+    max_concurrent_tasks: 8
+    
+  # A8: 市场Agent
+  - id: "A8"
+    name: "MarketAgent"
+    type: "analyst"
+    description: "市场分析与洞察"
+    capabilities:
+      - trend_analysis
+      - competitor_analysis
+      - sentiment_analysis
+    config:
+      data_sources: ["news", "social_media", "reports"]
+      analysis_period: "30d"
+    max_concurrent_tasks: 8
+    
+  # A9: 协调Agent
+  - id: "A9"
+    name: "FacilitatorAgent"
+    type: "coordinator"
+    description: "协作讨论协调"
+    capabilities:
+      - discussion_facilitation
+      - consensus_building
+      - conflict_resolution
+    config:
+      max_participants: 5
+      discussion_timeout: 300
+    max_concurrent_tasks: 10
+    
+  # A10: 聚合Agent
+  - id: "A10"
+    name: "AggregatorAgent"
+    type: "aggregator"
+    description: "结果聚合与输出"
+    capabilities:
+      - result_aggregation
+      - report_generation
+      - format_conversion
+    config:
+      aggregation_strategy: "weighted_average"
+      output_formats: ["markdown", "json", "pdf"]
+    max_concurrent_tasks: 20
+```
+
+## 3. 工作流模式配置 (workflows.yaml)
+
+```yaml
+# 工作流模式定义
+
+workflows:
+  # ==================== 顺序链式工作流 ====================
+  - id: "wf_content_creation"
+    name: "内容创作工作流"
+    pattern: "sequential"
+    description: "研究→写作→审核的顺序流程"
+    
+    steps:
+      - id: "step_research"
+        name: "研究阶段"
+        agent_id: "A3"
+        task_template: |
+          研究主题: {{topic}}
+          要求: 
+          - 收集相关信息和数据
+          - 整理关键观点
+          - 提供参考来源
+        output_key: "research_result"
+        
+      - id: "step_writing"
+        name: "写作阶段"
+        agent_id: "A4"
+        task_template: |
+          基于以下研究结果创作内容:
+          {{research_result}}
+          
+          要求:
+          - 结构清晰
+          - 语言流畅
+          - 符合{{tone}}风格
+        input_from: ["step_research"]
+        output_key: "draft_content"
+        
+      - id: "step_review"
+        name: "审核阶段"
+        agent_id: "A5"
+        task_template: |
+          审核以下内容:
+          {{draft_content}}
+          
+          检查项:
+          - 内容准确性
+          - 语言质量
+          - 格式规范
+        input_from: ["step_writing"]
+        output_key: "final_content"
+        
+    output:
+      from_step: "step_review"
+      format: "markdown"
+
+  # ==================== 路由式工作流 ====================
+  - id: "wf_intent_routing"
+    name: "意图路由工作流"
+    pattern: "router"
+    description: "根据用户意图路由到不同处理分支"
+    
+    router:
+      agent_id: "A1"
+      classification_prompt: |
+        分析用户请求，分类到以下类别之一:
+        - technical: 技术问题
+        - sales: 销售咨询
+        - support: 一般支持
+        - complaint: 投诉反馈
+      
+    branches:
+      - condition: "category == 'technical'"
+        target_agent: "A6"
+        task_template: "处理技术问题: {{user_input}}"
+        
+      - condition: "category == 'sales'"
+        target_agent: "A4"
+        task_template: "处理销售咨询: {{user_input}}"
+        
+      - condition: "category == 'support'"
+        target_agent: "A5"
+        task_template: "处理支持请求: {{user_input}}"
+        
+      - condition: "default"
+        target_agent: "A9"
+        task_template: "协调处理: {{user_input}}"
+
+  # ==================== 评估优化式工作流 ====================
+  - id: "wf_code_generation"
+    name: "代码生成优化工作流"
+    pattern: "evaluator_optimizer"
+    description: "迭代生成和优化代码"
+    
+    generator:
+      agent_id: "A6"
+      task_template: |
+        生成代码:
+        需求: {{requirement}}
+        语言: {{language}}
+        {{feedback}}
+      
+    evaluator:
+      agent_id: "A5"
+      task_template: |
+        评估以下代码:
+        ```{{language}}
+        {{generated_code}}
+        ```
+        
+        评估维度:
+        - 正确性 (0-10)
+        - 可读性 (0-10)
+        - 效率 (0-10)
+        - 安全性 (0-10)
+        
+        如果总分低于{{threshold}}，请提供改进建议。
+      
+    config:
+      max_iterations: 5
+      quality_threshold: 8.0
+      early_stop: true
+
+  # ==================== 并行式工作流 ====================
+  - id: "wf_market_analysis"
+    name: "市场分析工作流"
+    pattern: "parallel"
+    description: "多维度并行市场分析"
+    
+    parallel_steps:
+      - id: "parallel_trend"
+        name: "趋势分析"
+        agent_id: "A8"
+        task_template: |
+          分析市场趋势:
+          产品: {{product}}
+          时间范围: {{time_range}}
+        output_key: "trend_analysis"
+        
+      - id: "parallel_competitor"
+        name: "竞品分析"
+        agent_id: "A8"
+        task_template: |
+          分析竞争对手:
+          产品: {{product}}
+          竞争对手: {{competitors}}
+        output_key: "competitor_analysis"
+        
+      - id: "parallel_sentiment"
+        name: "情感分析"
+        agent_id: "A7"
+        task_template: |
+          分析用户情感:
+          产品: {{product}}
+          数据源: {{data_sources}}
+        output_key: "sentiment_analysis"
+        
+    aggregator:
+      agent_id: "A10"
+      task_template: |
+        聚合以下分析结果:
+        
+        趋势分析:
+        {{trend_analysis}}
+        
+        竞品分析:
+        {{competitor_analysis}}
+        
+        情感分析:
+        {{sentiment_analysis}}
+        
+        请生成综合报告。
+
+  # ==================== 规划式工作流 ====================
+  - id: "wf_project_planning"
+    name: "项目规划工作流"
+    pattern: "planner"
+    description: "智能项目规划与执行"
+    
+    planner:
+      agent_id: "A2"
+      task_template: |
+        制定项目计划:
+        目标: {{goal}}
+        约束: {{constraints}}
+        资源: {{resources}}
+        
+        输出格式:
+        1. 任务分解 (WBS)
+        2. 依赖关系
+        3. 时间安排
+        4. 资源分配
+      output_format: "structured_plan"
+      
+    executor:
+      agent_id: "A3"
+      task_template: |
+        执行计划步骤:
+        当前步骤: {{current_step}}
+        计划上下文: {{plan_context}}
+        
+    config:
+      auto_execute: true
+      replan_on_failure: true
+      max_replanning: 3
+
+  # ==================== 协作式工作流 ====================
+  - id: "wf_brainstorming"
+    name: "头脑风暴工作流"
+    pattern: "collaborative"
+    description: "多Agent协作头脑风暴"
+    
+    facilitator:
+      agent_id: "A9"
+      task_template: |
+        协调关于"{{topic}}"的头脑风暴讨论
+        参与Agent: {{participants}}
+        目标: 产生创新想法
+        
+    participants:
+      - agent_id: "A3"
+        role: "研究员"
+        task: "提供背景信息和数据支持"
+        
+      - agent_id: "A4"
+        role: "创意师"
+        task: "提出创新想法和概念"
+        
+      - agent_id: "A5"
+        role: "评估师"
+        task: "评估想法的可行性"
+        
+    config:
+      max_rounds: 5
+      consensus_threshold: 0.7
+      timeout: 600
+      
+    output:
+      aggregator: "A10"
+      format: "structured_ideas"
+```
+
+## 4. 路由规则配置 (routing_rules.yaml)
+
+```yaml
+# 智能路由规则配置
+
+routing_rules:
+  # 基于任务类型的路由
+  - name: "content_creation_route"
+    priority: 1
+    condition:
+      task_type: ["content", "writing", "article"]
+    action:
+      workflow: "wf_content_creation"
+      agents: ["A3", "A4", "A5"]
+      
+  - name: "code_generation_route"
+    priority: 2
+    condition:
+      task_type: ["code", "programming", "development"]
+    action:
+      workflow: "wf_code_generation"
+      agents: ["A6", "A5"]
+      
+  - name: "data_analysis_route"
+    priority: 3
+    condition:
+      task_type: ["data", "analysis", "report"]
+    action:
+      workflow: "wf_market_analysis"
+      agents: ["A7", "A8", "A10"]
+      
+  - name: "planning_route"
+    priority: 4
+    condition:
+      task_type: ["plan", "project", "schedule"]
+    action:
+      workflow: "wf_project_planning"
+      agents: ["A2", "A3"]
+      
+  - name: "discussion_route"
+    priority: 5
+    condition:
+      task_type: ["discuss", "brainstorm", "collaborate"]
+    action:
+      workflow: "wf_brainstorming"
+      agents: ["A9", "A3", "A4", "A5"]
+
+  # 基于复杂度的路由
+  - name: "simple_task_route"
+    priority: 10
+    condition:
+      complexity: "low"
+      estimated_time: "< 5min"
+    action:
+      pattern: "sequential"
+      max_agents: 2
+      
+  - name: "complex_task_route"
+    priority: 11
+    condition:
+      complexity: "high"
+      estimated_time: "> 30min"
+    action:
+      pattern: "planner"
+      require_approval: true
+
+  # 基于紧急程度的路由
+  - name: "urgent_task_route"
+    priority: 100
+    condition:
+      priority: "urgent"
+    action:
+      pattern: "parallel"
+      bypass_queue: true
+      notify_on_complete: true
+```
+
+## 5. 状态管理配置 (state_config.yaml)
+
+```yaml
+# 状态管理配置
+
+state_management:
+  # 状态存储配置
+  storage:
+    backend: "redis"
+    ttl: 86400  # 24小时
+    persistence: true
+    
+  # 同步配置
+  sync:
+    mode: "event_driven"  # event_driven | polling | hybrid
+    event_bus: "redis"
+    batch_size: 100
+    sync_interval: 1000  # ms
+    
+  # 一致性配置
+  consistency:
+    level: "eventual"  # strong | eventual
+    conflict_resolution: "last_write_wins"
+    
+  # 缓存配置
+  cache:
+    enabled: true
+    ttl: 300  # 5分钟
+    max_size: 10000
+    
+  # 状态类型定义
+  state_types:
+    workflow_state:
+      fields:
+        - id: string
+        - status: enum[pending, running, paused, completed, failed]
+        - current_step: string
+        - progress: float
+        - started_at: datetime
+        - completed_at: datetime
+        - context: object
+        
+    agent_state:
+      fields:
+        - id: string
+        - status: enum[idle, busy, offline]
+        - current_task: string
+        - load: float
+        - last_heartbeat: datetime
+        - capabilities: array
+        
+    task_state:
+      fields:
+        - id: string
+        - status: enum[pending, assigned, running, completed, failed]
+        - assigned_to: string
+        - input: object
+        - output: object
+        - started_at: datetime
+        - completed_at: datetime
+```
+
+## 6. 环境变量配置 (.env.example)
+
+```bash
+# Agent工作流系统环境变量
+
+# 系统配置
+WORKFLOW_SYSTEM_NAME=AgentWorkflowSystem
+WORKFLOW_LOG_LEVEL=INFO
+WORKFLOW_MAX_CONCURRENT=100
+
+# Redis配置
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+REDIS_PASSWORD=
+
+# PostgreSQL配置 (可选)
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=agent_workflow
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=password
+
+# LLM API配置
+OPENAI_API_KEY=sk-...
+OPENAI_BASE_URL=https://api.openai.com/v1
+
+ANTHROPIC_API_KEY=sk-ant-...
+
+# 监控配置
+METRICS_ENABLED=true
+METRICS_PORT=9090
+TRACING_ENABLED=true
+JAEGER_ENDPOINT=http://localhost:14268/api/traces
+
+# 安全配置
+JWT_SECRET=your-secret-key
+API_KEY_HEADER=X-API-Key
+RATE_LIMIT_PER_MINUTE=100
+```

@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-02-27T22:28:00+08:00",
+  "system": {
+    "hostname": "iv-yego5f6txc5i3z49e88g",
+    "platform": "Linux",
+    "kernel": "6.8.0-55-generic",
+    "architecture": "x64"
+  },
+  "health_baseline": {
+    "gateway": {
+      "expected_port": 18789,
+      "expected_bind": "127.0.0.1",
+      "probe_timeout_seconds": 5,
+      "max_restart_attempts": 3,
+      "restart_cooldown_seconds": 30
+    },
+    "disk": {
+      "root_partition": "/dev/vda2",
+      "total_size_gb": 40,
+      "warning_threshold_percent": 80,
+      "critical_threshold_percent": 90,
+      "cleanup_threshold_percent": 85
+    },
+    "memory": {
+      "warning_threshold_percent": 80,
+      "critical_threshold_percent": 90
+    },
+    "cpu": {
+      "warning_threshold_percent": 75,
+      "critical_threshold_percent": 90,
+      "sustained_duration_minutes": 5
+    },
+    "sessions": {
+      "max_age_hours": 24,
+      "cleanup_interval_hours": 6,
+      "orphaned_session_threshold_hours": 12
+    }
+  },
+  "self_healing": {
+    "enabled": true,
+    "strategies": [
+      "restart",
+      "cleanup",
+      "notify"
+    ],
+    "auto_restart": true,
+    "auto_cleanup": true,
+    "notification_channels": [
+      "log",
+      "system"
+    ]
+  },
+  "monitoring": {
+    "check_interval_seconds": 60,
+    "heartbeat_interval_seconds": 30,
+    "metrics_retention_days": 7,
+    "alert_cooldown_minutes": 5
+  },
+  "cron_gateway_fix": {
+    "issue": "Cron jobs may timeout if Gateway becomes unresponsive",
+    "solution": "Add pre-flight health check before executing cron tasks",
+    "implementation": "Use openclaw gateway status --quiet for validation"
+  },
+  "status": {
+    "last_check": "2026-02-27T22:55:33+08:00",
+    "last_healthy": null,
+    "consecutive_failures": 5,
+    "total_checks": 5,
+    "disk_usage_percent": 65,
+    "gateway_status": "down"
+  }
+}

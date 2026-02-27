@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-02-27T16:02:59.139962",
+    "score": 2.55,
+    "level": "normal",
+    "metrics": {
+      "language": 82,
+      "emotion": 75,
+      "proactivity": 90,
+      "boundary": 73,
+      "topic": 68
+    }
+  }
+]

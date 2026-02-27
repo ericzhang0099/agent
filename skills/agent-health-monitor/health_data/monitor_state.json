@@ -1,0 +1,177 @@
+{
+  "agents": {
+    "research-lead": {
+      "agent_id": "research-lead",
+      "agent_type": "research",
+      "capabilities": [
+        "web_search",
+        "analysis",
+        "reporting"
+      ],
+      "thresholds": {},
+      "registered_at": 1772187578.37647,
+      "status": "HealthStatus.DEGRADED",
+      "last_metrics": {
+        "agent_id": "research-lead",
+        "agent_type": "research",
+        "timestamp": 1772187578.3772633,
+        "response_time_ms": 1425.1923020161892,
+        "task_success_rate": 0.8902937357739282,
+        "tasks_completed": 264,
+        "tasks_failed": 10,
+        "cpu_usage": 0.7541110226629303,
+        "memory_usage": 0.8553470979588189,
+        "disk_usage": 0.3012982138917343,
+        "active_tasks": 1,
+        "queue_depth": 19,
+        "avg_load_1m": 0.8295586264531991,
+        "session_count": 3,
+        "last_heartbeat": 1772187504.4112632
+      },
+      "health_score": 80.5
+    },
+    "data-eng": {
+      "agent_id": "data-eng",
+      "agent_type": "data",
+      "capabilities": [
+        "data_processing",
+        "etl",
+        "analytics"
+      ],
+      "thresholds": {},
+      "registered_at": 1772187578.3764725,
+      "status": "HealthStatus.DEGRADED",
+      "last_metrics": {
+        "agent_id": "data-eng",
+        "agent_type": "data",
+        "timestamp": 1772187578.3772905,
+        "response_time_ms": 646.266626671271,
+        "task_success_rate": 0.9511343309737131,
+        "tasks_completed": 206,
+        "tasks_failed": 11,
+        "cpu_usage": 0.5634135183075588,
+        "memory_usage": 0.5768861215811608,
+        "disk_usage": 0.5240042423657996,
+        "active_tasks": 10,
+        "queue_depth": 71,
+        "avg_load_1m": 1.7642496331879438,
+        "session_count": 1,
+        "last_heartbeat": 1772187503.066679
+      },
+      "health_score": 84.0
+    },
+    "quant-strat": {
+      "agent_id": "quant-strat",
+      "agent_type": "quant",
+      "capabilities": [
+        "modeling",
+        "backtesting",
+        "risk_analysis"
+      ],
+      "thresholds": {},
+      "registered_at": 1772187578.3764741,
+      "status": "HealthStatus.HEALTHY",
+      "last_metrics": {
+        "agent_id": "quant-strat",
+        "agent_type": "quant",
+        "timestamp": 1772187578.3773084,
+        "response_time_ms": 578.4014247407723,
+        "task_success_rate": 0.857172627509956,
+        "tasks_completed": 135,
+        "tasks_failed": 0,
+        "cpu_usage": 0.5656526223508387,
+        "memory_usage": 0.6296753241328874,
+        "disk_usage": 0.49901459710605345,
+        "active_tasks": 7,
+        "queue_depth": 18,
+        "avg_load_1m": 1.6005918968111192,
+        "session_count": 2,
+        "last_heartbeat": 1772187518.0232317
+      },
+      "health_score": 90.0
+    }
+  },
+  "alerts": [
+    {
+      "alert_id": "research-lead_degraded_1772187578",
+      "agent_id": "research-lead",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent research-lead 性能下降",
+      "message": "健康评分: 80.5/100，建议优化",
+      "timestamp": 1772187578.3773425,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "research-lead_response_time_1772187578",
+      "agent_id": "research-lead",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent research-lead - response_time 异常",
+      "message": "响应时间警告: 1425ms > 1000ms",
+      "timestamp": 1772187578.3773468,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "research-lead_resource_usage_1772187578",
+      "agent_id": "research-lead",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent research-lead - resource_usage 异常",
+      "message": "资源使用率警告: 85.5%",
+      "timestamp": 1772187578.3773491,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "research-lead_heartbeat_1772187578",
+      "agent_id": "research-lead",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent research-lead - heartbeat 异常",
+      "message": "心跳超时警告: 74s > 60s",
+      "timestamp": 1772187578.3773508,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "data-eng_degraded_1772187578",
+      "agent_id": "data-eng",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent data-eng 性能下降",
+      "message": "健康评分: 84.0/100，建议优化",
+      "timestamp": 1772187578.3773723,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "data-eng_load_balance_1772187578",
+      "agent_id": "data-eng",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent data-eng - load_balance 异常",
+      "message": "队列深度警告: 71 > 50",
+      "timestamp": 1772187578.3773744,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "data-eng_heartbeat_1772187578",
+      "agent_id": "data-eng",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent data-eng - heartbeat 异常",
+      "message": "心跳超时警告: 75s > 60s",
+      "timestamp": 1772187578.377376,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "quant-strat_heartbeat_1772187578",
+      "agent_id": "quant-strat",
+      "level": "AlertLevel.WARNING",
+      "title": "Agent quant-strat - heartbeat 异常",
+      "message": "心跳超时警告: 60s > 60s",
+      "timestamp": 1772187578.377393,
+      "resolved": false,
+      "resolved_at": null
+    }
+  ],
+  "saved_at": 1772187578.3775134
+}

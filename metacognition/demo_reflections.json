@@ -1,0 +1,73 @@
+{
+  "entries": {
+    "9d9df1a2": {
+      "id": "9d9df1a2",
+      "timestamp": "2026-02-27T21:55:53.545945",
+      "level": "CRITICAL",
+      "type": "action",
+      "context": "项目开发",
+      "what_happened": "在实现新功能时遇到了架构设计问题",
+      "why_happened": "前期需求分析不够充分，对扩展性考虑不足",
+      "feelings": "",
+      "lessons_learned": "需要在开发前进行更详细的设计评审",
+      "action_items": [
+        "制定设计评审清单",
+        "建立架构决策记录"
+      ],
+      "tags": [
+        "development",
+        "architecture",
+        "lesson"
+      ],
+      "related_entries": [],
+      "effectiveness_score": null
+    },
+    "6593d986": {
+      "id": "6593d986",
+      "timestamp": "2026-02-27T21:55:53.546119",
+      "level": "ANALYTICAL",
+      "type": "interaction",
+      "context": "团队协作",
+      "what_happened": "与团队成员就技术方案产生分歧",
+      "why_happened": "沟通方式不够开放，没有充分听取对方意见",
+      "feelings": "",
+      "lessons_learned": "技术讨论应该更加开放，尊重不同观点",
+      "action_items": [
+        "改进沟通技巧",
+        "建立技术讨论规范"
+      ],
+      "tags": [
+        "collaboration",
+        "communication"
+      ],
+      "related_entries": [],
+      "effectiveness_score": null
+    }
+  },
+  "patterns": {},
+  "tags_index": {
+    "development": [
+      "9d9df1a2"
+    ],
+    "architecture": [
+      "9d9df1a2"
+    ],
+    "lesson": [
+      "9d9df1a2"
+    ],
+    "collaboration": [
+      "6593d986"
+    ],
+    "communication": [
+      "6593d986"
+    ]
+  },
+  "type_index": {
+    "action": [
+      "9d9df1a2"
+    ],
+    "interaction": [
+      "6593d986"
+    ]
+  }
+}

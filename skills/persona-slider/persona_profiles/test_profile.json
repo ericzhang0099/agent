@@ -1,0 +1,29 @@
+{
+  "name": "test_profile",
+  "saved_at": "2026-02-27T16:16:08.563906",
+  "mode": "work",
+  "dimensions": {
+    "guardian_intensity": 85,
+    "chuunibyou_level": 70,
+    "mom_factor": 90,
+    "proactivity": 95,
+    "professionalism": 80,
+    "playfulness": 40
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-27T16:16:08.563704",
+      "action": "mode_change",
+      "target": "work -> work",
+      "old_value": {},
+      "new_value": {
+        "guardian_intensity": 85,
+        "chuunibyou_level": 70,
+        "mom_factor": 90,
+        "proactivity": 95,
+        "professionalism": 80,
+        "playfulness": 40
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "skill": "competitor-monitor",
+  "version": "1.0.0",
+  "schedule": {
+    "type": "cron",
+    "expression": "0 * * * *",
+    "description": "每小时执行一次监控扫描"
+  },
+  "competitors": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "type": "LLM/API",
+      "priority": "high",
+      "keywords": ["OpenAI", "GPT-4", "GPT-5", "ChatGPT", "o1", "o3", "Codex"],
+      "monitor_dimensions": ["product_update", "funding", "tech_release"]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "type": "LLM/Agent",
+      "priority": "high",
+      "keywords": ["Anthropic", "Claude", "Claude 3", "Claude 4", "Sonnet", "Opus", "Claude Code"],
+      "monitor_dimensions": ["product_update", "funding", "tech_release"]
+    },
+    {
+      "id": "google_deepmind",
+      "name": "Google DeepMind",
+      "type": "LLM/Research",
+      "priority": "high",
+      "keywords": ["Gemini", "Google AI", "DeepMind", "Gemini 2", "Bard"],
+      "monitor_dimensions": ["product_update", "tech_release"]
+    },
+    {
+      "id": "microsoft_copilot",
+      "name": "Microsoft Copilot",
+      "type": "AI Agent",
+      "priority": "high",
+      "keywords": ["Copilot", "Microsoft AI", "GitHub Copilot", "Azure AI", "Copilot Studio"],
+      "monitor_dimensions": ["product_update", "tech_release"]
+    },
+    {
+      "id": "meta_ai",
+      "name": "Meta AI",
+      "type": "LLM/开源",
+      "priority": "medium",
+      "keywords": ["Llama", "Meta AI", "LLaMA 3", "LLaMA 4", "PyTorch"],
+      "monitor_dimensions": ["product_update", "funding", "tech_release"]
+    },
+    {
+      "id": "autogpt",
+      "name": "AutoGPT",
+      "type": "AI Agent框架",
+      "priority": "medium",
+      "keywords": ["AutoGPT", "Auto-GPT", "自主AI Agent"],
+      "monitor_dimensions": ["github", "product_update"]
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "type": "LLM框架",
+      "priority": "medium",
+      "keywords": ["LangChain", "LangSmith", "LangGraph"],
+      "monitor_dimensions": ["funding", "github", "product_update"]
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "type": "AI Agent框架",
+      "priority": "medium",
+      "keywords": ["CrewAI", "Multi-Agent", "Agent团队"],
+      "monitor_dimensions": ["github", "product_update", "funding"]
+    }
+  ],
+  "alert_rules": {
+    "funding": {
+      "threshold_usd": 10000000,
+      "severity": "high",
+      "immediate_notify": true
+    },
+    "product_update": {
+      "major_release": {
+        "severity": "high",
+        "immediate_notify": true
+      },
+      "minor_release": {
+        "severity": "medium",
+        "immediate_notify": false
+      }
+    },
+    "tech_release": {
+      "breakthrough": {
+        "severity": "high",
+        "immediate_notify": true
+      },
+      "paper": {
+        "severity": "medium",
+        "immediate_notify": false
+      }
+    },
+    "github": {
+      "major_release": {
+        "severity": "medium",
+        "immediate_notify": true
+      }
+    }
+  },
+  "output": {
+    "report_dir": "/root/.openclaw/workspace/memory/competitor-monitor",
+    "formats": ["json", "markdown"],
+    "retention_days": 90
+  },
+  "notification": {
+    "channels": ["console"],
+    "enabled": true
+  }
+}

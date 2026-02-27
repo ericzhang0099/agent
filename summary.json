@@ -1,0 +1,85 @@
+{
+  "title": "World Models (世界模型) - 内部世界模拟能力研究",
+  "description": "深入研究世界模型理论(Yann LeCun JEPA、Transformer-based世界模型、Dreamer算法、MPC)",
+  "files": [
+    {
+      "path": "world_models_research.md",
+      "description": "世界模型研究文档 - 包含Yann LeCun理论、JEPA、GAIA-1、Dreamer、MPC等全面研究"
+    },
+    {
+      "path": "world_model.py",
+      "description": "核心代码实现 - RSSM、WorldModel、ActorCritic、MPCPlanner、JEPAWorldModel"
+    },
+    {
+      "path": "example_planning.py",
+      "description": "规划和控制示例 - 智能体训练、MPC规划、想象轨迹可视化"
+    },
+    {
+      "path": "README.md",
+      "description": "代码框架使用指南"
+    }
+  ],
+  "key_concepts": [
+    {
+      "name": "World Models (世界模型)",
+      "description": "智能体对环境的内部模拟能力，支持预测和规划"
+    },
+    {
+      "name": "JEPA (Joint Embedding Predictive Architecture)",
+      "description": "Yann LeCun提出的非生成式世界模型架构"
+    },
+    {
+      "name": "RSSM (Recurrent State-Space Model)",
+      "description": "Dreamer的核心 - 循环状态空间模型"
+    },
+    {
+      "name": "Imagination-based Training",
+      "description": "在想象的轨迹上训练策略"
+    },
+    {
+      "name": "MPC (Model Predictive Control)",
+      "description": "模型预测控制 - 使用世界模型进行动作优化"
+    }
+  ],
+  "algorithms": [
+    {
+      "name": "Dreamer",
+      "paper": "Dream to Control: Learning Behaviors by Latent Imagination",
+      "key_features": ["RSSM", "想象训练", "潜在空间规划"]
+    },
+    {
+      "name": "DayDreamer",
+      "paper": "DayDreamer: World Models for Physical Robot Learning",
+      "key_features": ["真实机器人", "1小时学会行走", "在线适应"]
+    },
+    {
+      "name": "GAIA-1",
+      "paper": "GAIA-1: A Generative World Model for Autonomous Driving",
+      "key_features": ["9B参数", "自动驾驶", "多模态生成"]
+    },
+    {
+      "name": "TransDreamer",
+      "paper": "Reinforcement Learning with Transformer World Models",
+      "key_features": ["Transformer", "长程依赖", "TSSM"]
+    },
+    {
+      "name": "TD-MPC2",
+      "paper": "TD-MPC2: Scalable, Robust World Models for Continuous Control",
+      "key_features": ["MPC", "连续控制", "规模化"]
+    }
+  ],
+  "lecun_architecture": {
+    "components": [
+      "Configurator (配置器)",
+      "Perception (感知模块)",
+      "World Model (世界模型)",
+      "Cost Module (成本模块)",
+      "Short-term Memory (短期记忆)",
+      "Actor (执行器)"
+    ],
+    "modes": [
+      "Mode 1: 反应式行为 (System 1)",
+      "Mode 2: 推理与规划 (System 2)"
+    ]
+  }
+}

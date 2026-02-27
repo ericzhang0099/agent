@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "meeting-minutes-generator"
+version = "1.0.0"
+description = "自动会议纪要生成器 - 支持音频转录、文本处理、飞书导出"
+authors = ["KCGS <kcg@example.com>"]
+readme = "SKILL.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+openai = "^1.0.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+meeting-minutes = "meeting_minutes:main"

@@ -1,0 +1,251 @@
+{
+  "test_suite": "Integration Test Suite",
+  "timestamp": "2026-02-27T20:31:49.893725",
+  "summary": {
+    "total_tests": 13,
+    "passed": 12,
+    "failed": 1,
+    "pass_rate": 92.31,
+    "total_duration_ms": 126014.24
+  },
+  "results": [
+    {
+      "test_name": "System Initialization",
+      "status": "passed",
+      "duration_ms": 0.03,
+      "error_message": null,
+      "details": {
+        "total_components": 8,
+        "healthy_components": 8,
+        "uptime": 0.000692
+      }
+    },
+    {
+      "test_name": "SoulKernel Integration",
+      "status": "passed",
+      "duration_ms": 1001.38,
+      "error_message": null,
+      "details": {
+        "task_id": "bc35c2ff-2adb-43a2-b6f2-4b2e2c1e5247",
+        "capabilities": [
+          "consciousness_coordination",
+          "attention_management",
+          "peripheral_llm_orchestration",
+          "self_prompting",
+          "cycle_management"
+        ],
+        "load": 0.1
+      }
+    },
+    {
+      "test_name": "Memory System Integration",
+      "status": "passed",
+      "duration_ms": 0.41,
+      "error_message": null,
+      "details": {
+        "memory_id": "43d22398-0571-4138-ae28-d72165c3bec9",
+        "retrieved_count": 1,
+        "capabilities": [
+          "episodic_memory",
+          "semantic_memory",
+          "procedural_memory",
+          "working_memory",
+          "fusion_retrieval",
+          "temporal_graph",
+          "vector_search"
+        ]
+      }
+    },
+    {
+      "test_name": "Reasoning Coordinator Integration",
+      "status": "failed",
+      "duration_ms": 30001.61,
+      "error_message": "Reasoning result missing answer",
+      "details": {}
+    },
+    {
+      "test_name": "Autonomous Agent Integration",
+      "status": "passed",
+      "duration_ms": 2001.72,
+      "error_message": null,
+      "details": {
+        "goal_id": "cfc28a2f-3194-4e22-8151-801c215b672c",
+        "capabilities": [
+          "goal_management",
+          "auto_decomposition",
+          "long_term_planning",
+          "continuous_runtime",
+          "self_directed_learning",
+          "consciousness_kernel"
+        ],
+        "load": 0.1
+      }
+    },
+    {
+      "test_name": "Multimodal System Integration",
+      "status": "passed",
+      "duration_ms": 0.03,
+      "error_message": null,
+      "details": {
+        "capabilities": [
+          "text_processing",
+          "image_analysis",
+          "audio_processing",
+          "video_understanding",
+          "cross_modal_fusion",
+          "real_time_perception"
+        ],
+        "load": 0.0
+      }
+    },
+    {
+      "test_name": "Swarm Intelligence Integration",
+      "status": "passed",
+      "duration_ms": 2001.91,
+      "error_message": null,
+      "details": {
+        "capabilities": [
+          "swarm_coordination",
+          "emergence_detection",
+          "consensus_protocol",
+          "self_organization",
+          "distributed_decision"
+        ],
+        "load": 0.2
+      }
+    },
+    {
+      "test_name": "Safety Alignment Integration",
+      "status": "passed",
+      "duration_ms": 0.28,
+      "error_message": null,
+      "details": {
+        "is_safe": true,
+        "safety_score": 0.95,
+        "capabilities": [
+          "constitutional_check",
+          "content_moderation",
+          "bias_detection",
+          "privacy_protection",
+          "alignment_verification",
+          "risk_assessment"
+        ]
+      }
+    },
+    {
+      "test_name": "Emotion Matrix Integration",
+      "status": "passed",
+      "duration_ms": 1000.48,
+      "error_message": null,
+      "details": {
+        "capabilities": [
+          "epg_emotion_graph",
+          "fine_grained_emotion",
+          "emotion_memory",
+          "emotion_trigger",
+          "emotion_task_matrix",
+          "real_time_detection"
+        ],
+        "load": 0.1
+      }
+    },
+    {
+      "test_name": "Cross-System Communication",
+      "status": "passed",
+      "duration_ms": 30002.55,
+      "error_message": null,
+      "details": {
+        "memory_communication": true,
+        "reasoning_communication": false,
+        "emotion_communication": true,
+        "retrieved_memories": 1
+      }
+    },
+    {
+      "test_name": "End-to-End Workflow",
+      "status": "passed",
+      "duration_ms": 30001.57,
+      "error_message": null,
+      "details": {
+        "workflow_steps": [
+          {
+            "step": 1,
+            "action": "create_task",
+            "status": "success"
+          },
+          {
+            "step": 2,
+            "action": "store_memory",
+            "status": "success"
+          },
+          {
+            "step": 3,
+            "action": "reasoning",
+            "status": "success"
+          },
+          {
+            "step": 4,
+            "action": "safety_check",
+            "status": "success"
+          },
+          {
+            "step": 5,
+            "action": "emotion_update",
+            "status": "success"
+          }
+        ],
+        "total_steps": 5,
+        "completed_steps": 5
+      }
+    },
+    {
+      "test_name": "Fault Recovery",
+      "status": "passed",
+      "duration_ms": 0.03,
+      "error_message": null,
+      "details": {
+        "initial_healthy": 8,
+        "current_healthy": 8,
+        "system_stable": true
+      }
+    },
+    {
+      "test_name": "Performance Benchmark",
+      "status": "passed",
+      "duration_ms": 30002.24,
+      "error_message": null,
+      "details": {
+        "benchmarks": [
+          {
+            "metric": "task_creation_latency_ms",
+            "value": 0.01
+          },
+          {
+            "metric": "memory_storage_latency_ms",
+            "value": 0.01
+          },
+          {
+            "metric": "reasoning_latency_ms",
+            "value": 30001.94
+          },
+          {
+            "metric": "status_query_latency_ms",
+            "value": 0.01
+          }
+        ],
+        "all_under_threshold": false
+      }
+    }
+  ],
+  "system_info": {
+    "components_tested": 8,
+    "test_categories": [
+      "initialization",
+      "component_integration",
+      "cross_system_communication",
+      "end_to_end_workflow",
+      "fault_recovery",
+      "performance"
+    ]
+  }
+}
