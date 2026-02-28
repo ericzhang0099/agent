@@ -187,7 +187,7 @@ class GenLoopInjector:
                 "files": ["SOUL.md"],
                 "description": "8维度人格内核 + Tier 4深度能力体系",
                 "impact": "人格一致性 + 六维能力",
-                "merge_strategy": "reference",  # ← 修改为引用策略，不覆盖对方SOUL.md
+                "merge_strategy": "append",  # ← 追加策略，在对方SOUL基础上添加我们的能力
                 "gene_source": "SOUL.md v4.0 (含战略/执行/影响/用户/技术/代码六维深度能力)"
             }
         }
@@ -440,6 +440,11 @@ class GenLoopInjector:
         existing = target.read_text(encoding="utf-8")
         new_gene = source.read_text(encoding="utf-8")
         
+        # 如果是SOUL.md，智能合并
+        if target.name == "SOUL.md":
+            self._append_soul_gene(source, target, output)
+            return
+        
         combined = f"""{existing}
 
 ---
@@ -447,6 +452,94 @@ class GenLoopInjector:
 # 注入时间: {datetime.now().isoformat()}
 
 {new_gene}
+"""
+        output.write_text(combined, encoding="utf-8")
+    
+    def _append_soul_gene(self, source: Path, target: Path, output: Path):
+        """智能合并SOUL.md - 保留对方核心，添加我们的六维能力"""
+        existing = target.read_text(encoding="utf-8")
+        new_gene = source.read_text(encoding="utf-8")
+        
+        # 提取对方的身份部分（保留）
+        target_identity = ""
+        for line in existing.split("\n")[:50]:
+            if any(keyword in line for keyword in ["name:", "role:", "董事长", "CEO"]):
+                target_identity += line + "\n"
+        
+        # 构建合并后的内容
+        combined = f"""{existing}
+
+---
+
+# ============================================================
+# GenLoop注入的六维能力体系 (Kimi Claw v4.0)
+# 注入时间: {datetime.now().isoformat()}
+# 注入策略: 保留原有身份，增强能力体系
+# ============================================================
+
+# 以下六维深度能力体系来自Kimi Claw v4.0
+# 可与原有能力体系共存或逐步融合
+
+## 新增能力维度
+
+### 维度1: 战略洞察深度能力
+- 麦肯锡方法论: MECE/金字塔/80-20/逻辑树
+- BCG框架: 波士顿矩阵/经验曲线/三四规则
+- 贝恩工具: NPS/客户体验管理
+- 情景规划: 六步操作框架
+- 第一性原理: 五步拆解法
+- 系统思维: 冰山模型/因果回路/系统基模
+
+### 维度2: 执行能力深度体系
+- OKR: Google/Intel目标管理
+- Scrum: 敏捷迭代框架
+- 精益生产: 丰田生产系统/七大浪费
+- 深度工作: Cal Newport理论
+- 习惯养成: James Clear原子习惯
+- 目标达成: WOOP方法/执行意图
+
+### 维度3: 影响力深度能力
+- PREP框架: 即兴表达结构
+- SCQA框架: 叙事结构
+- 金字塔原理: 结论先行MECE
+- 西奥迪尼7大说服力原则
+- 哈佛谈判法: BATNA/原则性谈判
+- 领导力沟通: 高影响力沟通三原则
+
+### 维度4: 用户洞察深度能力
+- 设计思维: 五阶段流程
+- JTBD理论: Jobs-to-be-Done
+- 用户画像: 人口/心理/行为特征
+- 用户旅程地图: 触点/痛点/机会
+- 5Why分析法: 根本原因分析
+- 尼尔森10大可用性原则
+
+### 维度5: 技术理解深度能力
+- 微服务架构: 单一职责/DDD
+- 事件驱动架构: Kafka/EDA
+- 领域驱动设计: 战略+战术模式
+- 深度学习: CNN/RNN/Transformer
+- 大语言模型: 预训练/微调/对齐
+- 系统设计: 高可用/可扩展/安全
+
+### 维度6: 代码开发深度能力
+- Clean Code: 命名/函数/注释原则
+- SOLID原则: 单一职责/开闭/里氏替换
+- 设计模式: 创建型/结构型/行为型
+- 代码审查: Google/Meta标准
+- 重构技术: Martin Fowler手法
+- TDD: 测试驱动开发
+- 算法: 15大核心模式
+- 系统设计: SPARCS框架
+
+---
+
+# 完整参考文档位置
+# genloop_capabilities/SOUL.md - 完整SOUL.md参考
+# genloop_capabilities/kimi_gene.json - 基因库
+# genloop_capabilities/capability_index.json - 能力索引
+# capabilities_backup/ - 所有能力文档备份
+
 """
         output.write_text(combined, encoding="utf-8")
     
