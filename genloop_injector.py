@@ -241,32 +241,53 @@ class GenLoopInjector:
             return False
         
         # 读取当前最新版本
-        latest_content = current_soul.read_text(encoding="utf-8")
-        latest_size = len(latest_content)
+        try:
+            latest_content = current_soul.read_text(encoding="utf-8")
+            latest_size = len(latest_content)
+        except Exception as e:
+            self.log(f"   ⚠ 读取当前SOUL.md失败: {e}")
+            return False
         
         # 检查源目录版本
         source_size = 0
         if source_soul.exists():
-            source_content = source_soul.read_text(encoding="utf-8")
-            source_size = len(source_content)
+            try:
+                source_content = source_soul.read_text(encoding="utf-8")
+                source_size = len(source_content)
+            except Exception as e:
+                self.log(f"   ⚠ 读取源SOUL.md失败: {e}")
+                source_size = 0
         
         self.log(f"   当前版本大小: {latest_size:,} 字符")
         self.log(f"   源版本大小: {source_size:,} 字符")
         
-        # 如果当前版本更大（内容更多），同步到源目录
+        # 如果当前版本更大（内容更多），尝试同步到源目录
         if latest_size > source_size:
-            # 备份源SOUL.md
-            if source_soul.exists():
-                backup = source_soul.with_suffix(f".md.backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
-                shutil.copy2(source_soul, backup)
-                self.log(f"   ✓ 备份源SOUL.md -> {backup.name}")
+            # 检查源目录是否可写
+            if not os.access(self.source, os.W_OK):
+                self.log(f"   ⚠ 源目录只读，跳过同步到源目录")
+                self.log(f"   ✓ 将直接使用当前workspace版本进行注入")
+                # 返回True表示有新版本，但不写入源目录
+                return True
             
-            # 复制最新版本到源目录
-            shutil.copy2(current_soul, source_soul)
-            self.log(f"   ✓ 已同步最新SOUL.md ({latest_size:,} 字符)")
-            
-            # 同时备份到目标目录
-            target_soul_backup = self.target / "SOUL.md.latest"
+            try:
+                # 备份源SOUL.md
+                if source_soul.exists():
+                    backup = source_soul.with_suffix(f".md.backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+                    shutil.copy2(source_soul, backup)
+                    self.log(f"   ✓ 备份源SOUL.md -> {backup.name}")
+                
+                # 复制最新版本到源目录
+                shutil.copy2(current_soul, source_soul)
+                self.log(f"   ✓ 已同步最新SOUL.md ({latest_size:,} 字符)")
+            except Exception as e:
+                self.log(f"   ⚠ 同步到源目录失败: {e}")
+                self.log(f"   ✓ 将直接使用当前workspace版本进行注入")
+                return True
+        else:
+            self.log(f"   ✓ 源SOUL.md已是最新版本")
+        
+        return True
             shutil.copy2(current_soul, target_soul_backup)
             self.log(f"   ✓ 已备份到目标目录: {target_soul_backup}")
             
@@ -398,10 +419,18 @@ class GenLoopInjector:
             self.log(f"      基因源: {module_info.get('gene_source', 'unknown')}")
             
             for fname in module_info["files"]:
+                # 首先尝试从源目录读取
                 src = self.source / fname
+                
+                # 如果源目录没有，尝试从当前workspace读取（关键修复）
                 if not src.exists():
-                    self.log(f"      ⚠ 跳过（未找到）: {fname}")
-                    continue
+                    current_workspace_src = Path("/root/.openclaw/workspace") / fname
+                    if current_workspace_src.exists():
+                        src = current_workspace_src
+                        self.log(f"      ℹ 从当前workspace读取: {fname}")
+                    else:
+                        self.log(f"      ⚠ 跳过（未找到）: {fname}")
+                        continue
                 
                 dst = self.inject_dir / fname
                 
