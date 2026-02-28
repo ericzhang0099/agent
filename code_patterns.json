@@ -1,0 +1,22 @@
+{
+  "error_handling": {
+    "pattern": "try-except-finally with specific exceptions",
+    "template": "\ntry:\n    result = risky_operation()\nexcept SpecificError as e:\n    logger.error(f\"Operation failed: {e}\")\n    result = fallback_value\nfinally:\n    cleanup_resources()\n",
+    "use_case": "\u4efb\u4f55\u53ef\u80fd\u5931\u8d25\u7684\u64cd\u4f5c"
+  },
+  "file_operations": {
+    "pattern": "atomic file write with backup",
+    "template": "\ndef safe_write(filepath, content):\n    backup = f\"{filepath}.backup\"\n    if os.path.exists(filepath):\n        shutil.copy2(filepath, backup)\n    \n    try:\n        with open(filepath, 'w') as f:\n            f.write(content)\n        return True\n    except Exception as e:\n        if os.path.exists(backup):\n            shutil.copy2(backup, filepath)\n        raise\n",
+    "use_case": "\u91cd\u8981\u6587\u4ef6\u5199\u5165"
+  },
+  "process_management": {
+    "pattern": "timeout with graceful degradation",
+    "template": "\nimport signal\n\nclass TimeoutHandler:\n    def __init__(self, seconds):\n        self.seconds = seconds\n        self.timed_out = False\n    \n    def handle_timeout(self, signum, frame):\n        self.timed_out = True\n        raise TimeoutError(f\"Operation exceeded {self.seconds} seconds\")\n    \n    def __enter__(self):\n        signal.signal(signal.SIGALRM, self.handle_timeout)\n        signal.alarm(self.seconds)\n        return self\n    \n    def __exit__(self, type, value, traceback):\n        signal.alarm(0)\n",
+    "use_case": "\u9632\u6b62\u957f\u65f6\u95f4\u963b\u585e"
+  },
+  "checkpoint_pattern": {
+    "pattern": "save progress for resume",
+    "template": "\nclass CheckpointManager:\n    def __init__(self, task_id):\n        self.task_id = task_id\n        self.checkpoint_file = f\"checkpoint_{task_id}.json\"\n    \n    def save(self, state):\n        with open(self.checkpoint_file, 'w') as f:\n            json.dump(state, f)\n    \n    def load(self):\n        if os.path.exists(self.checkpoint_file):\n            with open(self.checkpoint_file) as f:\n                return json.load(f)\n        return None\n",
+    "use_case": "\u957f\u4efb\u52a1\u65ad\u70b9\u7eed\u4f20"
+  }
+}
