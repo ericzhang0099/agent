@@ -187,7 +187,7 @@ class GenLoopInjector:
                 "files": ["SOUL.md"],
                 "description": "8维度人格内核 + Tier 4深度能力体系",
                 "impact": "人格一致性 + 六维能力",
-                "merge_strategy": "adapt",
+                "merge_strategy": "reference",  # ← 修改为引用策略，不覆盖对方SOUL.md
                 "gene_source": "SOUL.md v4.0 (含战略/执行/影响/用户/技术/代码六维深度能力)"
             }
         }
@@ -425,13 +425,10 @@ class GenLoopInjector:
                     self.log(f"      ✓ 引用: {fname} (保留现有)")
                     
                 elif merge_strategy == "adapt":
-                    # 适配SOUL基因到目标
+                    # 适配SOUL基因到目标（仅保存到inject_dir，不覆盖根目录）
                     adapted = self._adapt_soul_gene(src, analysis)
                     dst.write_text(adapted, encoding="utf-8")
-                    self.log(f"      ✓ 适配: {fname} (融合现有)")
-                    # 同时复制完整版本到目标根目录
-                    shutil.copy2(src, self.target / fname)
-                    self.log(f"      ✓ 完整版已复制到: {self.target / fname}")
+                    self.log(f"      ✓ 适配: {fname} (融合现有，不覆盖原文件)")
                 
                 injected.append(fname)
         
